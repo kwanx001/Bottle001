@@ -5,9 +5,9 @@ class ThemeAddressCascade extends BaseElement {
         city: { display: false, type: 'input' },
         district: { display: false, type: 'input' },
     };
-    #countrySelector = this.querySelector('#AddressCountry');
-    #provinceSelector = this.querySelector('#AddressProvinceSelect');
-    #citySelector = this.querySelector('#AddressCitySelect');
+    countrySelector = this.querySelector('#AddressCountry');
+    provinceSelector = this.querySelector('#AddressProvinceSelect');
+    citySelector = this.querySelector('#AddressCitySelect');
     #districtSelector = this.querySelector('#AddressDistrictSelect');
     #provinceInput = this.querySelector('#AddressProvinceInput');
     #cityInput = this.querySelector('#AddressCityInput');
@@ -15,6 +15,9 @@ class ThemeAddressCascade extends BaseElement {
     #provinceGroup = this.querySelector('#AddressProvinceGroup');
     #cityGroup = this.querySelector('#AddressCityGroup');
     #districtGroup = this.querySelector('#AddressDistrictGroup');
+    afterCountryChange;
+    afterProvinceChange;
+    afterCityChange;
     #getAddressFieldType(type) {
         return type === 1 ? 'select' : 'input';
     }
@@ -24,9 +27,9 @@ class ThemeAddressCascade extends BaseElement {
     #getParentSelectorElement(fieldName) {
         const levels = [
             { name: 'district', el: this.#districtSelector },
-            { name: 'city', el: this.#citySelector },
-            { name: 'province', el: this.#provinceSelector },
-            { name: 'country', el: this.#countrySelector },
+            { name: 'city', el: this.citySelector },
+            { name: 'province', el: this.provinceSelector },
+            { name: 'country', el: this.countrySelector },
         ];
         const index = levels.findIndex((level) => level.name === fieldName);
         const partnerList = levels.slice(index + 1);
@@ -115,7 +118,7 @@ class ThemeAddressCascade extends BaseElement {
             return [];
         }
         const parentCode = parent.value;
-        const countryCode = this.#countrySelector.value;
+        const countryCode = this.countrySelector.value;
         if (!parentCode || !config.display || config.type === 'input') {
             return [];
         }
@@ -137,7 +140,7 @@ class ThemeAddressCascade extends BaseElement {
     #renderAddressForm() {
         const { country, province, city, district } = this.#config;
         if (country.display) {
-            const label = this.#countrySelector.nextElementSibling;
+            const label = this.countrySelector.nextElementSibling;
             if (label && country.title) {
                 label.innerHTML = country.title;
             }
@@ -146,11 +149,11 @@ class ThemeAddressCascade extends BaseElement {
             this.#provinceGroup.classList.add('shown');
             if (province.type === 'select') {
                 this.#provinceGroup.classList.add('select');
-                const label = this.#provinceSelector.nextElementSibling;
+                const label = this.provinceSelector.nextElementSibling;
                 if (label && province.title) {
                     label.innerHTML = province.title;
                 }
-                this.#provinceSelector.required = province.required;
+                this.provinceSelector.required = province.required;
             }
             else {
                 this.#provinceGroup.classList.remove('select');
@@ -160,7 +163,6 @@ class ThemeAddressCascade extends BaseElement {
                 }
                 this.#provinceInput.required = province.required;
             }
-            this.#addValidationListeners(province);
         }
         else {
             this.#provinceGroup.classList.remove('shown');
@@ -169,11 +171,11 @@ class ThemeAddressCascade extends BaseElement {
             this.#cityGroup.classList.add('shown');
             if (city.type === 'select') {
                 this.#cityGroup.classList.add('select');
-                const label = this.#citySelector.nextElementSibling;
+                const label = this.citySelector.nextElementSibling;
                 if (label && city.title) {
                     label.innerHTML = city.title;
                 }
-                this.#citySelector.required = city.required;
+                this.citySelector.required = city.required;
             }
             else {
                 this.#cityGroup.classList.remove('select');
@@ -183,7 +185,6 @@ class ThemeAddressCascade extends BaseElement {
                 }
                 this.#cityInput.required = city.required;
             }
-            this.#addValidationListeners(city);
         }
         else {
             this.#cityGroup.classList.remove('shown');
@@ -206,17 +207,19 @@ class ThemeAddressCascade extends BaseElement {
                 }
                 this.#districtInput.required = district.required;
             }
-            this.#addValidationListeners(district);
         }
         else {
             this.#districtGroup.classList.remove('shown');
         }
+        this.#addValidationListeners(province);
+        this.#addValidationListeners(city);
+        this.#addValidationListeners(district);
     }
     #addValidationListeners(currentLevelConfig) {
-        const { inputElement, remindCopywriter, required } = currentLevelConfig;
+        const { inputElement, remindCopywriter, required, display } = currentLevelConfig;
         const listenerKey = '_validationHandlers';
         this.#removeCustomValidityListeners(inputElement, listenerKey);
-        if (required) {
+        if (required && display) {
             const handleInvalid = () => {
                 if (inputElement.validity.valueMissing) {
                     inputElement.setCustomValidity(remindCopywriter);
@@ -247,16 +250,16 @@ class ThemeAddressCascade extends BaseElement {
         element.setCustomValidity('');
     }
     #clearProvince() {
-        this.#provinceSelector.innerHTML = '';
-        this.#provinceSelector.value = '';
-        this.#provinceSelector.required = false;
+        this.provinceSelector.innerHTML = '';
+        this.provinceSelector.value = '';
+        this.provinceSelector.required = false;
         this.#provinceInput.value = '';
         this.#provinceInput.required = false;
     }
     #clearCity() {
-        this.#citySelector.innerHTML = '';
-        this.#citySelector.value = '';
-        this.#citySelector.required = false;
+        this.citySelector.innerHTML = '';
+        this.citySelector.value = '';
+        this.citySelector.required = false;
         this.#cityInput.value = '';
         this.#cityInput.required = false;
     }
@@ -271,9 +274,9 @@ class ThemeAddressCascade extends BaseElement {
         if (this.#config.province.type === 'select') {
             const provinces = await this.#fetchNextLevelOptions('province');
             const options = provinces.map(({ name, code }) => this.#buildOptions(name, code));
-            this.#provinceSelector.innerHTML = options.join('');
+            this.provinceSelector.innerHTML = options.join('');
             if (typeof value === 'string') {
-                this.#provinceSelector.value = value;
+                this.provinceSelector.value = value;
             }
         }
         else if (typeof value === 'string') {
@@ -284,9 +287,9 @@ class ThemeAddressCascade extends BaseElement {
         if (this.#config.city.type === 'select') {
             const cities = await this.#fetchNextLevelOptions('city');
             const options = cities.map(({ name, code }) => this.#buildOptions(name, code));
-            this.#citySelector.innerHTML = options.join('');
+            this.citySelector.innerHTML = options.join('');
             if (typeof value === 'string') {
-                this.#citySelector.value = value;
+                this.citySelector.value = value;
             }
         }
         else if (typeof value === 'string') {
@@ -310,15 +313,21 @@ class ThemeAddressCascade extends BaseElement {
         if (!(event.target instanceof HTMLSelectElement)) {
             throw new Error('Invalid event target.');
         }
+        const { value } = event.target;
+        await this.handleCountryChange(value);
+    };
+    handleCountryChange = async (code) => {
         this.#clearProvince();
         this.#clearCity();
         this.#clearDistrict();
-        const code = event.target.value;
         this.#config = await this.#fetchAddressTemplate(code);
         this.#renderAddressForm();
         await this.#updateProvince();
         await this.#updateCity();
         await this.#updateDistrict();
+        if (this.afterCountryChange && typeof this.afterCountryChange === 'function') {
+            this.afterCountryChange();
+        }
     };
     #provinceChangedHandler = async (event) => {
         if (!(event.target instanceof HTMLSelectElement)) {
@@ -328,6 +337,9 @@ class ThemeAddressCascade extends BaseElement {
         this.#clearDistrict();
         await this.#updateCity();
         await this.#updateDistrict();
+        if (this.afterProvinceChange && typeof this.afterProvinceChange === 'function') {
+            this.afterProvinceChange();
+        }
     };
     #cityChangedHandler = async (event) => {
         if (!(event.target instanceof HTMLSelectElement)) {
@@ -335,22 +347,25 @@ class ThemeAddressCascade extends BaseElement {
         }
         this.#clearDistrict();
         await this.#updateDistrict();
+        if (this.afterCityChange && typeof this.afterCityChange === 'function') {
+            this.afterCityChange();
+        }
     };
     async #initSelectors() {
-        const defaultCountryCode = this.#countrySelector.dataset.default || undefined;
-        const defaultProvinceCode = this.#provinceSelector.dataset.default || undefined;
-        const defaultCityCode = this.#citySelector.dataset.default || undefined;
+        const defaultCountryCode = this.countrySelector.dataset.default || undefined;
+        const defaultProvinceCode = this.provinceSelector.dataset.default || undefined;
+        const defaultCityCode = this.citySelector.dataset.default || undefined;
         const defaultDistrictCode = this.#districtSelector.dataset.default || undefined;
         const countries = await this.#fetchCountryOptions();
         const options = countries.map((country) => this.#buildOptions(country.name, country.countryCode));
-        this.#countrySelector.innerHTML = options.join('');
+        this.countrySelector.innerHTML = options.join('');
         let code = defaultCountryCode;
         if (code && countries.some((country) => country.countryCode === code)) {
-            this.#countrySelector.value = code;
+            this.countrySelector.value = code;
         }
         else {
             code = countries[0].countryCode;
-            this.#countrySelector.value = code;
+            this.countrySelector.value = code;
         }
         this.#config = await this.#fetchAddressTemplate(code);
         this.#renderAddressForm();
@@ -366,9 +381,9 @@ class ThemeAddressCascade extends BaseElement {
     }
     mounted() {
         this.#initSelectors();
-        this.#countrySelector.addEventListener('change', this.#countryChangedHandler);
-        this.#provinceSelector.addEventListener('change', this.#provinceChangedHandler);
-        this.#citySelector.addEventListener('change', this.#cityChangedHandler);
+        this.countrySelector.addEventListener('change', this.#countryChangedHandler);
+        this.provinceSelector.addEventListener('change', this.#provinceChangedHandler);
+        this.citySelector.addEventListener('change', this.#cityChangedHandler);
     }
 }
 customElements.define('theme-address-cascade', ThemeAddressCascade);

@@ -124,6 +124,7 @@
       },
       "none_existent": "Barang tak ada",
       "selling_plan": {
+        "discount": "Diskaun langganan",
         "name": "Maklumat Langganan"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Memuat lebih banyak item",
       "no_product_data_found": "Tiada data produk ditemui. Sila cuba lagi kemudian",
       "sold_out": "Habis Dijual",
+      "suffix": {
+        "unavailable": "Tidak boleh dibeli"
+      },
       "unavailable": "Barangan tidak wujud",
       "variant_property_color": "Warna"
     },

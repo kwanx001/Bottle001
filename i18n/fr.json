@@ -124,6 +124,7 @@
       },
       "none_existent": "L’article n’existe pas",
       "selling_plan": {
+        "discount": "Remise sur l’abonnement",
         "name": "Informations sur l’abonnement"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Charger plus d’éléments",
       "no_product_data_found": "Aucune donnée trouvée concernant le produit. Veuillez réessayer plus tard",
       "sold_out": "Épuisé",
+      "suffix": {
+        "unavailable": "Ne peut pas être acheté"
+      },
       "unavailable": "L’article n’existe pas",
       "variant_property_color": "Couleur"
     },

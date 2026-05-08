@@ -17,13 +17,34 @@ defineModule('theme-header-nav-drawer', () => {
             }
             this.close();
         };
+        #subMenuClickHandler = (event) => {
+            const path = event.composedPath();
+            const summary = path.find((el) => el instanceof HTMLElement && el.tagName === 'SUMMARY');
+            if (!summary || !this.contains(summary))
+                return;
+            const details = summary.closest('details');
+            if (!details)
+                return;
+            event.preventDefault();
+            const iconClicked = path.some((el) => el instanceof HTMLElement && el.matches('[data-role="nav-drawer-submenu-icon"]'));
+            if (!iconClicked) {
+                const linkEl = summary.querySelector('[data-role="nav-drawer-submenu-text"]');
+                if (linkEl) {
+                    window.location.assign(linkEl.href);
+                    return;
+                }
+            }
+            details.open = !details.open;
+        };
         mounted() {
             document.addEventListener('click', this.#switchClickHandler);
             this.addEventListener('click', this.#dismissClickHandler);
+            this.addEventListener('click', this.#subMenuClickHandler);
         }
         unmounted() {
             document.removeEventListener('click', this.#switchClickHandler);
             this.removeEventListener('click', this.#dismissClickHandler);
+            this.removeEventListener('click', this.#subMenuClickHandler);
         }
         #isMatchingTarget(targets, selector) {
             return targets.some((target) => {

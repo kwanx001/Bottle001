@@ -124,6 +124,7 @@
       },
       "none_existent": "Tavaransa ovat olemattomat",
       "selling_plan": {
+        "discount": "Tilauksen alennus",
         "name": "Tilaustiedot"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Ladataan lisää kohteita",
       "no_product_data_found": "Tuotetietoja ei löytynyt Yritä myöhemmin uudelleen",
       "sold_out": "Loppuunmyyty",
+      "suffix": {
+        "unavailable": "Ei voi ostaa"
+      },
       "unavailable": "Tätä tuotetta ei ole enää saatavilla",
       "variant_property_color": "Väri"
     },

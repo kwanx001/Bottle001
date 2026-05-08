@@ -124,6 +124,7 @@
       },
       "none_existent": "Towar nie jest dostępny",
       "selling_plan": {
+        "discount": "Rabat subskrypcyjny",
         "name": "Informacje o subskrypcji"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Załaduj więcej projektów",
       "no_product_data_found": "Brak danych tego produktu, proszę spróbować później",
       "sold_out": "Wyprzedane",
+      "suffix": {
+        "unavailable": "Nie można kupić"
+      },
       "unavailable": "Brak tego produktu",
       "variant_property_color": "kolor"
     },

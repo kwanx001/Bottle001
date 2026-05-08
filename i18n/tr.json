@@ -124,6 +124,7 @@
       },
       "none_existent": "Ürünler mevcut değil",
       "selling_plan": {
+        "discount": "Abonelik indirimi",
         "name": "Abonelik bilgileri"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Daha fazla öğe yükleniyor",
       "no_product_data_found": "Ürün verisi bulunamadı. Lütfen daha sonra tekrar deneyin",
       "sold_out": "Tümü Satıldı",
+      "suffix": {
+        "unavailable": "Satın alınamaz"
+      },
       "unavailable": "Ürünler mevcut değil",
       "variant_property_color": "Renk"
     },

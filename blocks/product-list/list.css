@@ -31,6 +31,10 @@
   }
 }
 
+.block-product-list__carousel {
+  max-width: 100%;
+}
+
 .block-product-list__button {
   position: absolute;
   inset-block-start: 50%;

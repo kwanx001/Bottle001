@@ -81,6 +81,9 @@
   background-color: rgba(var(--color-text), 0.1);
   border-radius: 4px;
 }
+.cart-coupon__list theme-popover {
+  align-items: center;
+}
 .cart-coupon__list-tag {
   display: flex;
   align-items: center;
@@ -139,6 +142,9 @@
 .cart-fixed-checkout__sub-info {
   padding-block: 0 12px;
   padding-inline: 12px;
+}
+.cart-fixed-checkout .cart-taxes {
+  padding-block: 6px;
 }
 .cart-fixed-checkout__main-info {
   padding: 12px;
@@ -206,6 +212,9 @@
   .main-cart-footer__payment-info {
     width: 100%;
   }
+}
+.main-cart-footer .cart-amount {
+  margin-block-start: 15px;
 }
 .main-cart-footer__checkout {
   margin-block: 15px;

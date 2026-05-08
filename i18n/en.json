@@ -21,7 +21,7 @@
       "email_format": "Please enter correct email",
       "form_title": "Comment",
       "loadmore": "More comments",
-      "moderated_tip": "Note: commnets needs to be approved before publication",
+      "moderated_tip": "Note: comments needs to be approved before publication",
       "name": "Name",
       "name_empty": "Please fill in name",
       "post_comment": "Post comment",
@@ -124,6 +124,7 @@
       },
       "none_existent": "Product does not exist",
       "selling_plan": {
+        "discount": "Subscription discount",
         "name": "Subscription"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Loading more items",
       "no_product_data_found": "No product data found. Please try again later",
       "sold_out": "Sold Out",
+      "suffix": {
+        "unavailable": "- Unavailable"
+      },
       "unavailable": "Variant doesn't exist",
       "variant_property_color": "color"
     },

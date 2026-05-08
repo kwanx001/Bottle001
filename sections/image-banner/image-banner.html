@@ -1,33 +1,39 @@
 {{#component "stylesheet" src="./image-banner.css" | asset_url() /}}
 
 {{#var image_height_type /}}
-{{#if section.settings.match_height_to_first_image}}
+{{#if section.settings.match_height_to_first_image }}
   {{#set image_height_type = "adapt" /}}
 {{#else/}}
   {{#set image_height_type = section.settings.image_height /}}
 {{/if}}
 
 <div
-  class="image-banner-section
-    {{image_height_type}}{{#if section.settings.show_text_below_image}} content-below{{/if}}"
-  style="
-    {{#if section.settings.match_height_to_first_image}}--image-banner-height:{{section.settings.first_image.height}}px;{{/if}}
-    {{#if section.settings.overlay_opacity}}--image-banner-overlay-opacity:{{section.settings.overlay_opacity}}%;{{/if}}
+  class="
+    image-banner-section
+    {{ image_height_type }}{{#if section.settings.show_text_below_image }}content-below{{/if}}
   "
-  data-section-id="{{section.id}}"
+  style="
+    {{#if section.settings.match_height_to_first_image }}
+      --image-banner-height:{{ section.settings.first_image.height }}px;
+    {{/if}}
+    {{#if section.settings.overlay_opacity }}
+      --image-banner-overlay-opacity:{{ section.settings.overlay_opacity }}%;
+    {{/if}}
+  "
+  data-section-id="{{ section.id }}"
 >
   <div class="image-banner__image">
-    {{#if section.settings.first_image}}
+    {{#if section.settings.first_image }}
       <div class="image-banner__image-item">
         {{#component "image" data=section.settings.first_image /}}
       </div>
     {{/if}}
-    {{#if section.settings.second_image}}
+    {{#if section.settings.second_image }}
       <div class="image-banner__image-item">
         {{#component "image" data=section.settings.second_image /}}
       </div>
     {{/if}}
-    {{#if !section.settings.first_image && !section.settings.second_image}}
+    {{#if !section.settings.first_image && !section.settings.second_image }}
       <div class="image-banner__image-item">
         {{#placeholder_svg "lifestyle-1" class="default-image" /}}
       </div>
@@ -35,7 +41,7 @@
   </div>
 
   <div class="image-banner__content">
-    <div class="page-width {{section.settings | class_list()}}">
+    <div class="page-width {{ section.settings | class_list() }}">
       {{#content "blocks" /}}
     </div>
   </div>
@@ -49,14 +55,12 @@
     {
       "type": "image",
       "id": "first_image",
-      "label": "t:sections.image_banner.settings.first_image.label",
-      "default": {}
+      "label": "t:sections.image_banner.settings.first_image.label"
     },
     {
       "type": "image",
       "id": "second_image",
-      "label": "t:sections.image_banner.settings.second_image.label",
-      "default": {}
+      "label": "t:sections.image_banner.settings.second_image.label"
     },
     {
       "type": "select",

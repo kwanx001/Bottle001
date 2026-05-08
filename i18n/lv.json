@@ -124,6 +124,7 @@
       },
       "none_existent": "Preču neeksistē",
       "selling_plan": {
+        "discount": "Abonementa atlaide",
         "name": "Abonēšanas informācija"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Notiek citu vienumu ielāde",
       "no_product_data_found": "Nav atrasti dati par produktu. Lūdzu, mēģiniet vēlreiz vēlāk",
       "sold_out": "Pārdevies",
+      "suffix": {
+        "unavailable": "Nevar iegādāties"
+      },
       "unavailable": "Preces neeksistē",
       "variant_property_color": "Krāsa"
     },

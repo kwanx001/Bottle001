@@ -124,6 +124,7 @@
       },
       "none_existent": "Item bestaat niet",
       "selling_plan": {
+        "discount": "Abonnementskorting",
         "name": "Abonnementsinformatie"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Meer artikelen laden",
       "no_product_data_found": "Geen gegevens van dit artikel, probeer het later nog eens",
       "sold_out": "Niet op voorraad",
+      "suffix": {
+        "unavailable": "Kan niet worden gekocht"
+      },
       "unavailable": "Dit artikel bestaat niet",
       "variant_property_color": "Kleur"
     },

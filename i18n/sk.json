@@ -124,6 +124,7 @@
       },
       "none_existent": "Tovar neexistuje",
       "selling_plan": {
+        "discount": "Zľava na predplatné",
         "name": "Informácie o predplatnom"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Načítava sa viac položiek",
       "no_product_data_found": "Nenašli sa žiadne údaje o produkte. Skúste to neskôr prosím",
       "sold_out": "Vypredané",
+      "suffix": {
+        "unavailable": "Nie je možné zakúpiť"
+      },
       "unavailable": "Tovar neexistuje",
       "variant_property_color": "Farba"
     },

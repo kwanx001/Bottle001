@@ -124,6 +124,7 @@
       },
       "none_existent": "Produkten finns inte",
       "selling_plan": {
+        "discount": "Prenumerationsrabatt",
         "name": "Prenumerationsinformation"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Laddar fler objekt",
       "no_product_data_found": "Inga produktdata hittades. Försök igen senare",
       "sold_out": "Slutsålt",
+      "suffix": {
+        "unavailable": "Kan inte köpas"
+      },
       "unavailable": "Varorna finns inte",
       "variant_property_color": "Färg"
     },

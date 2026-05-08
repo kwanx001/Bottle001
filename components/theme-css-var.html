@@ -48,7 +48,6 @@
 --sort-body-style: {{settings.sort_body_font.style}};
 --sort-body-weight: {{settings.sort_body_font.weight}};
 {{#var body_font_weight = settings.sort_body_font.weight /}}
-{{#var body_font_weight_bold = body_font_weight | plus(300) /}}
 --sort-body-weight-bold: {{#if body_font_weight >= 1000}}1000{{#else/}}{{body_font_weight}}{{/if}};
 --sort-body-letter-spacing: {{#if settings.sort_body_letter_spacing == 0}}0.00000001em{{#else/}}{{ settings.sort_body_letter_spacing | divided_by(1000, integer=false) }}em{{/if}};
 --sort-body-size: {{settings.sort_body_size}}px;
@@ -93,7 +92,6 @@
 
 --drawer-border-thickness: {{settings.drawer_border_thickness}}px;
 --drawer-border-opacity: {{settings.drawer_border_opacity}}%;
---drawer-border-radius: {{settings.drawer_border_radius}}px;
 --drawer-shadow-opacity: {{settings.drawer_shadow_opacity}}%;
 --drawer-shadow-offset-x: {{settings.drawer_shadow_offset_x}}px;
 --drawer-shadow-offset-y: {{settings.drawer_shadow_offset_y}}px;

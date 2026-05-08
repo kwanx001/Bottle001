@@ -124,6 +124,7 @@
       },
       "none_existent": "Kaupu pole olemas",
       "selling_plan": {
+        "discount": "Tellimuse allahindlus",
         "name": "Tellimuse teave"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Rohkemate üksuste laadimine",
       "no_product_data_found": "Tooteandmeid ei leitud. Proovi hiljem uuesti",
       "sold_out": "Välja müüdud",
+      "suffix": {
+        "unavailable": "Ei ole võimalik osta"
+      },
       "unavailable": "Kaupu ei ole olemas",
       "variant_property_color": "Värvus"
     },

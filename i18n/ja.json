@@ -124,6 +124,7 @@
       },
       "none_existent": "商品が存在しません",
       "selling_plan": {
+        "discount": "定期購入割引",
         "name": "サブスクリプション情報"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "さらにアイテムをロードする",
       "no_product_data_found": "商品データが見つかりません。しばらくしてからもう一度お試しください",
       "sold_out": "売り切れ",
+      "suffix": {
+        "unavailable": "購入できません"
+      },
       "unavailable": "この商品は存在しません",
       "variant_property_color": "色"
     },

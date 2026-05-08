@@ -124,6 +124,7 @@
       },
       "none_existent": "Hàng hóa không tồn tại",
       "selling_plan": {
+        "discount": "Ưu đãi đăng ký",
         "name": "Thông tin đăng ký nhận tin"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Đang tải thêm mục",
       "no_product_data_found": "Không tìm thấy thông tin sản phẩm. Vui lòng thử lại sau.",
       "sold_out": "Hết hàng",
+      "suffix": {
+        "unavailable": "Không thể mua"
+      },
       "unavailable": "",
       "variant_property_color": "Màu sắc"
     },

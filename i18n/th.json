@@ -124,6 +124,7 @@
       },
       "none_existent": "ไม่มีสินค้า",
       "selling_plan": {
+        "discount": "ส่วนลดการสมัครสมาชิก",
         "name": "การสมัครสมาชิก"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "โหลดรายการเพิ่มเติม",
       "no_product_data_found": "ไม่พบข้อมูลสินค้า โปรดลองอีกครั้งในภายหลัง",
       "sold_out": "ขายหมดแล้ว",
+      "suffix": {
+        "unavailable": "ไม่สามารถใช้ได้"
+      },
       "unavailable": "สินค้านี้ไม่มีอยู่",
       "variant_property_color": "สี"
     },

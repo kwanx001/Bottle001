@@ -3,37 +3,66 @@ defineModule('theme-main-company', () => {
         #companyFormElement = null;
         #checkboxElement = null;
         #billingElement = null;
+        #addressCascadeElements = null;
+        #shippingCascadeElement = null;
+        #billingCascadeElement = null;
         constructor() {
             super();
+            this.#addressCascadeElements = this.querySelectorAll('theme-address-cascade');
+            const shippingCascadeElement = this.#addressCascadeElements[0];
+            const billingCascadeElement = this.#addressCascadeElements[1];
+            this.#shippingCascadeElement = shippingCascadeElement;
+            this.#billingCascadeElement = billingCascadeElement;
+            if (this.#shippingCascadeElement) {
+                this.#shippingCascadeElement.afterCountryChange = () => {
+                    this.#billingCascadeElement?.countrySelector.dispatchEvent(new Event('change'));
+                };
+            }
+            if (this.#shippingCascadeElement) {
+                this.#shippingCascadeElement.afterProvinceChange = () => {
+                    this.#billingCascadeElement?.provinceSelector.dispatchEvent(new Event('change'));
+                };
+            }
+            if (this.#shippingCascadeElement) {
+                this.#shippingCascadeElement.afterCityChange = () => {
+                    this.#billingCascadeElement?.citySelector.dispatchEvent(new Event('change'));
+                };
+            }
             this.#companyFormElement = this.querySelector('.customer-company__form');
             this.#checkboxElement = this.querySelector('.customer__extra input[type="checkbox"]');
             this.#billingElement = this.querySelector('.customer-company__billing');
             if (this.#companyFormElement) {
+                this.#companyFormElement.addEventListener('change', this.fillSameAsShippingAddress.bind(this));
                 this.#companyFormElement.addEventListener('submit', this.#onSubmitHandler.bind(this));
             }
             if (this.#checkboxElement) {
                 this.#checkboxElement.addEventListener('change', this.#onCheckboxChange.bind(this));
             }
         }
-        #onCheckboxChange(event) {
+        async #onCheckboxChange(event) {
             const { checked } = event.target;
             this.#billingElement?.classList.toggle('hidden', checked);
+            if (checked) {
+                await this.triggerBillingAddressChange();
+            }
+            this.fillSameAsShippingAddress();
         }
         #onSubmitHandler(event) {
             event.preventDefault();
             const valid = this.#companyFormElement?.checkValidity();
             if (valid && this.#companyFormElement) {
-                const formData = new FormData(this.#companyFormElement);
-                if (this.#checkboxElement?.checked) {
-                    this.fillSameAsShippingAddress(formData);
-                }
+                this.fillSameAsShippingAddress();
                 this.#companyFormElement?.submit();
             }
             else {
                 this.#companyFormElement?.reportValidity();
             }
         }
-        fillSameAsShippingAddress(formData) {
+        fillSameAsShippingAddress() {
+            const formData = new FormData(this.#companyFormElement);
+            if (!this.#checkboxElement?.checked) {
+                return;
+            }
             const mobilePhone = formData.get('company[shipping_address][mobile_phone]');
             const countryCode = formData.get('company[shipping_address][country_code]');
             const provinceCode = formData.get('company[shipping_address][province_code]');
@@ -79,6 +108,9 @@ defineModule('theme-main-company', () => {
                 this.#billingElement.querySelector('[name="company[billing_address][addr_two]"]').value =
                     address2;
             }
+        }
+        async triggerBillingAddressChange() {
+            await this.#billingCascadeElement?.handleCountryChange(this.#shippingCascadeElement?.countrySelector.value || '');
         }
     }
     window.customElements.define('theme-main-company', ThemeMainCompany);

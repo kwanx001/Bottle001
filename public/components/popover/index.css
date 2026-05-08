@@ -1,17 +1,25 @@
 @layer component {
   theme-popover {
-    --arrow-gap: 12px;
+    --arrow-gap: 6px;
 
     position: relative;
     display: inline-flex;
     user-select: none;
   }
 
+  theme-popover[data-clone] {
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+  }
+
   theme-popover-content {
-    position: absolute;
+    position: fixed;
+    inset-block-start: var(--fixed-top, 0);
+    inset-inline-start: var(--fixed-left, 0);
     z-index: var(--z-index-popover);
     width: max-content;
-    max-width: min(80vw, 250px);
+    max-width: min(90vw, 288px);
     padding: 4px 8px;
     margin: 0;
     font-size: 14px;
@@ -28,23 +36,40 @@
     );
   }
 
+  theme-popover-content::before,
   theme-popover-content::after {
     position: absolute;
     display: block;
+    width: 0;
+    height: 0;
     content: "";
-    background-color: var(--background-color);
+    border: calc(var(--arrow-gap) / 2) solid var(--background-color);
+  }
+
+  theme-popover-content::before {
+    border-color: var(--border-color);
   }
   theme-popover:not([data-mode]) theme-popover-content,
   theme-popover[data-mode="popover"] theme-popover-content {
     --background-color: rgb(var(--color-background));
     --text-color: rgb(var(--color-text));
+    --border-color: rgba(var(--color-text), var(--modal-border-opacity));
+    --border-width: var(--modal-border-thickness);
 
-    border: var(--card-border-thickness) solid
-      rgba(var(--color-entry-line), var(--card-shadow-opacity));
+    background-color: var(--background-color);
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: var(--border-width);
+    border-radius: var(--modal-border-radius);
+    box-shadow: var(--modal-shadow-offset-x) var(--modal-shadow-offset-y)
+      var(--modal-shadow-blur)
+      rgba(var(--color-shadow), var(--modal-shadow-opacity));
   }
   theme-popover[data-mode="tooltip"] theme-popover-content {
     --text-color: #fff;
     --background-color: rgb(0 0 0 / 80%);
+    --border-color: transparent;
+    --border-width: 0px;
 
     border-width: 0;
   }
@@ -63,95 +88,109 @@
   theme-popover:not([data-position]),
   theme-popover[data-adaptation-position="top"],
   theme-popover:not([data-adaptation-position])[data-position="top"] {
-    --transform-x: -50%;
+    --transform-y: calc(-1 * var(--arrow-gap));
   }
-
-  theme-popover:not([data-position]) theme-popover-content,
-  theme-popover[data-adaptation-position="top"] theme-popover-content,
+  theme-popover:not([data-position]) theme-popover-content::before,
+  theme-popover:not([data-position]) theme-popover-content::after,
+  theme-popover[data-adaptation-position="top"] theme-popover-content::before,
+  theme-popover[data-adaptation-position="top"] theme-popover-content::after,
   theme-popover:not([data-adaptation-position])[data-position="top"]
-    theme-popover-content {
-    inset-block-end: calc(100% + var(--arrow-gap));
+    theme-popover-content::before,
+  theme-popover:not([data-adaptation-position])[data-position="top"]
+    theme-popover-content::after {
+    inset-block-start: 100%;
     inset-inline-start: 50%;
+    border-block-end: 0;
+    border-inline-start-color: transparent;
+    border-inline-end-color: transparent;
+    transform: translateX(calc(-50% + var(--offset-x) * -1));
   }
 
   theme-popover:not([data-position]) theme-popover-content::after,
   theme-popover[data-adaptation-position="top"] theme-popover-content::after,
   theme-popover:not([data-adaptation-position])[data-position="top"]
     theme-popover-content::after {
-    inset-block-start: calc(100% - 1px);
-    inset-inline-start: 50%;
-    width: 12px;
-    height: 6px;
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-    transform: translateX(calc(-50% + var(--offset-x) * -1));
+    transform: translateX(calc(-50% + var(--offset-x) * -1))
+      translateY(calc(-1 * var(--border-width)));
   }
 
   theme-popover[data-adaptation-position="bottom"],
   theme-popover:not([data-adaptation-position])[data-position="bottom"] {
-    --transform-x: -50%;
+    --transform-y: calc(1 * var(--arrow-gap));
   }
-
-  theme-popover[data-adaptation-position="bottom"] theme-popover-content,
+  theme-popover[data-adaptation-position="bottom"]
+    theme-popover-content::before,
+  theme-popover[data-adaptation-position="bottom"] theme-popover-content::after,
   theme-popover:not([data-adaptation-position])[data-position="bottom"]
-    theme-popover-content {
-    inset-block-start: calc(100% + var(--arrow-gap));
+    theme-popover-content::before,
+  theme-popover:not([data-adaptation-position])[data-position="bottom"]
+    theme-popover-content::after {
+    inset-block-end: 100%;
     inset-inline-start: 50%;
+    border-block-start: 0;
+    border-inline-start-color: transparent;
+    border-inline-end-color: transparent;
+    transform: translateX(calc(-50% + var(--offset-x) * -1));
   }
 
   theme-popover[data-adaptation-position="bottom"] theme-popover-content::after,
   theme-popover:not([data-adaptation-position])[data-position="bottom"]
     theme-popover-content::after {
-    inset-block-end: calc(100% - 1px);
-    inset-inline-start: 50%;
-    width: 12px;
-    height: 6px;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    transform: translateX(calc(-50% + var(--offset-x) * -1));
+    transform: translateX(calc(-50% + var(--offset-x) * -1))
+      translateY(calc(1 * var(--border-width)));
   }
 
   theme-popover[data-adaptation-position="left"],
   theme-popover:not([data-adaptation-position])[data-position="left"] {
-    --transform-y: -50%;
+    --transform-x: calc(-1 * var(--arrow-gap));
   }
-
-  theme-popover[data-adaptation-position="left"] theme-popover-content,
+  theme-popover[data-adaptation-position="left"] theme-popover-content::before,
+  theme-popover[data-adaptation-position="left"] theme-popover-content::after,
   theme-popover:not([data-adaptation-position])[data-position="left"]
-    theme-popover-content {
+    theme-popover-content::before,
+  theme-popover:not([data-adaptation-position])[data-position="left"]
+    theme-popover-content::after {
     inset-block-start: 50%;
-    inset-inline-end: calc(100% + var(--arrow-gap));
+    inset-inline-end: 0;
+    border-block-start-color: transparent;
+    border-block-end-color: transparent;
+    border-inline-end: 0;
+    transform: translate(100%, calc(-50% + var(--offset-y) * -1));
   }
 
   theme-popover[data-adaptation-position="left"] theme-popover-content::after,
   theme-popover:not([data-adaptation-position])[data-position="left"]
     theme-popover-content::after {
-    inset-block-start: 50%;
-    inset-inline-end: 0;
-    width: 6px;
-    height: 12px;
-    clip-path: polygon(100% 50%, 0 0, 0 100%);
-    transform: translate(100%, calc(-50% + var(--offset-y) * -1));
+    transform: translate(
+      calc(100% - var(--border-width)),
+      calc(-50% + var(--offset-y) * -1)
+    );
   }
 
   theme-popover[data-adaptation-position="right"],
   theme-popover:not([data-adaptation-position])[data-position="right"] {
-    --transform-y: -50%;
+    --transform-x: calc(1 * var(--arrow-gap));
   }
-
-  theme-popover[data-adaptation-position="right"] theme-popover-content,
+  theme-popover[data-adaptation-position="right"] theme-popover-content::before,
+  theme-popover[data-adaptation-position="right"] theme-popover-content::after,
   theme-popover:not([data-adaptation-position])[data-position="right"]
-    theme-popover-content {
+    theme-popover-content::before,
+  theme-popover:not([data-adaptation-position])[data-position="right"]
+    theme-popover-content::after {
     inset-block-start: 50%;
-    inset-inline-start: calc(100% + var(--arrow-gap));
+    inset-inline-start: 0;
+    border-block-start-color: transparent;
+    border-block-end-color: transparent;
+    border-inline-start: 0;
+    transform: translate(-100%, calc(-50% + var(--offset-y) * -1));
   }
 
   theme-popover[data-adaptation-position="right"] theme-popover-content::after,
   theme-popover:not([data-adaptation-position])[data-position="right"]
     theme-popover-content::after {
-    inset-block-start: 50%;
-    inset-inline-start: 0;
-    width: 6px;
-    height: 12px;
-    clip-path: polygon(0 50%, 100% 0, 100% 100%);
-    transform: translate(-100%, calc(-50% + var(--offset-y) * -1));
+    transform: translate(
+      calc(-100% + var(--border-width)),
+      calc(-50% + var(--offset-y) * -1)
+    );
   }
 }

@@ -124,6 +124,7 @@
       },
       "none_existent": "المنتج غير موجود",
       "selling_plan": {
+        "discount": "خصم الاشتراك",
         "name": "معلومات الاشتراك"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "تحميل المزيد من المشاريع\n",
       "no_product_data_found": "لا توجد بيانات للمنتج الحالي ، يرجى المحاولة مرة أخرى في وقت لاحق",
       "sold_out": "نفدت",
+      "suffix": {
+        "unavailable": "غير قادر على الشراء"
+      },
       "unavailable": "العنصر غير موجود",
       "variant_property_color": "اللون"
     },

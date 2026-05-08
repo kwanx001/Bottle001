@@ -124,6 +124,7 @@
       },
       "none_existent": "O item não existe",
       "selling_plan": {
+        "discount": "Desconto da subscrição",
         "name": "Informação sobre a subscrição"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Carregando mais itens",
       "no_product_data_found": "Sem dados actuais do item, por favor tente novamente mais tarde",
       "sold_out": "Vendido",
+      "suffix": {
+        "unavailable": "Compra indisponível"
+      },
       "unavailable": "Os produtos não existem",
       "variant_property_color": "Cor"
     },

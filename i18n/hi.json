@@ -124,6 +124,7 @@
       },
       "none_existent": "सामग्री उपलब्ध नहीं है",
       "selling_plan": {
+        "discount": "सदस्यता छूट",
         "name": "सदस्यता की जानकारी"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "और आइटम लोड किए जा रहे हैं",
       "no_product_data_found": "कोई उत्पाद डेटा नहीं मिला। बाद में पुन: प्रयास करें",
       "sold_out": "बिक गया",
+      "suffix": {
+        "unavailable": "खरीदा नहीं जा सकता"
+      },
       "unavailable": "सामान मौजूद नहीं है",
       "variant_property_color": "रंग"
     },

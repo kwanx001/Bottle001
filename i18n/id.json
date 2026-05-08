@@ -124,6 +124,7 @@
       },
       "none_existent": "Produk tidak ada",
       "selling_plan": {
+        "discount": "Diskon langganan",
         "name": "Langganan"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Muat lebih banyak item",
       "no_product_data_found": "Tidak ada data produk saat ini, silakan coba lagi nanti",
       "sold_out": "Terjual habis",
+      "suffix": {
+        "unavailable": "Tidak tersedia"
+      },
       "unavailable": "Produk ini tidak tersedia",
       "variant_property_color": "रंग"
     },

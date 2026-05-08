@@ -124,6 +124,7 @@
       },
       "none_existent": "Prekė neegzistuoja",
       "selling_plan": {
+        "discount": "Prenumeratos nuolaida",
         "name": "Prenumeratos informacija"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Įkeliama daugiau elementų",
       "no_product_data_found": "Duomenų apie prekę nerasta Prašome bandyti dar kartą vėliau",
       "sold_out": "Išparduota",
+      "suffix": {
+        "unavailable": "Negali būti įsigyta"
+      },
       "unavailable": "Prekės neegzistuoja",
       "variant_property_color": "Spalva"
     },

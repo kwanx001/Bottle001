@@ -61,11 +61,16 @@
               
               <details>
                 <summary class="header-nav-drawer__menu-control">
-                  <span class="header-nav-drawer__ellipsis body3 body-font-bold">{{ link.title }}</span>
+                  {{#if link.url }}
+                    <a href="{{ link.url }}" class="header-nav-drawer__ellipsis body3 body-font-bold" data-role="nav-drawer-submenu-text">{{ link.title }}</a>
+                  {{#else/}}
+                    <span class="header-nav-drawer__ellipsis body3 body-font-bold">{{ link.title }}</span>
+                  {{/if}}
                   <span
                     class="header-nav-drawer__menu-icon button button--icon"
                     title="expand menu"
                     aria-label="expand menu"
+                    data-role="nav-drawer-submenu-icon"
                   >
                     {{#component "icons/arrow-thin" /}}
                     {{#component "icons/minus" /}}
@@ -90,11 +95,16 @@
                     <li>
                       <details>
                         <summary class="header-nav-drawer__menu-control">
-                          <span class="body3 header-nav-drawer__ellipsis">{{ link.title }}</span>
+                          {{#if link.url }}
+                            <a href="{{ link.url }}" class="body3 header-nav-drawer__ellipsis" data-role="nav-drawer-submenu-text">{{ link.title }}</a>
+                          {{#else/}}
+                            <span class="body3 header-nav-drawer__ellipsis">{{ link.title }}</span>
+                          {{/if}}
                           <span
                             class="header-nav-drawer__menu-icon button button--icon"
                             title="expand menu"
                             aria-label="expand menu"
+                            data-role="nav-drawer-submenu-icon"
                           >
                             {{#component "icons/arrow-thin" /}}
                             {{#component "icons/minus" /}}

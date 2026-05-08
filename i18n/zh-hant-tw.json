@@ -124,6 +124,7 @@
       },
       "none_existent": "商品不存在",
       "selling_plan": {
+        "discount": "訂閱優惠",
         "name": "訂閱資訊"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "加載更多項目",
       "no_product_data_found": "找不到產品資料。請稍後再試",
       "sold_out": "已售罄",
+      "suffix": {
+        "unavailable": "- 無法購買"
+      },
       "unavailable": "該商品不存在",
       "variant_property_color": "顏色"
     },

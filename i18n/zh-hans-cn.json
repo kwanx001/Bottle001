@@ -124,6 +124,7 @@
       },
       "none_existent": "商品不存在",
       "selling_plan": {
+        "discount": "订阅优惠",
         "name": "订阅信息"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "加载更多项目",
       "no_product_data_found": "暂无当前商品数据，请稍后再试",
       "sold_out": "已售罄",
+      "suffix": {
+        "unavailable": "- 无法购买"
+      },
       "unavailable": "该商品不存在",
       "variant_property_color": "颜色"
     },

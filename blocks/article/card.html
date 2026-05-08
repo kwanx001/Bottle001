@@ -3,7 +3,7 @@
 {{#var article = props.article /}}
 
 <a
-  href="{{ article.url | default(`javascript:void(0)`) }}"
+  href="{{ article.url | default(`javascript:;`) }}"
   class="
     block-article-card {{#if settings.article_card_style == "card" }}article-card-border-shadow{{/if}}
     {{ block.settings | class_list() }}

@@ -1,6 +1,6 @@
-<div class="{{block.settings | class_list()}} theme-video" {{{block.shopline_attributes}}}>
+<div class="{{ block.settings | class_list() }} theme-video" {{{ block.shopline_attributes }}}>
   {{#var muted /}}
-  {{#if block.settings.autoplay}}
+  {{#if block.settings.autoplay }}
     {{#set muted = true /}}
   {{#else/}}
     {{#set muted = false /}}
@@ -26,8 +26,7 @@
     {
       "type": "image",
       "id": "poster_image",
-      "label": "t:sections.video.blocks.settings.poster_image.label",
-      "default": {}
+      "label": "t:sections.video.blocks.settings.poster_image.label"
     },
     {
       "type": "video",

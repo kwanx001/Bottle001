@@ -18,9 +18,10 @@
   /}}
 
   {{#if product.quantity_price_breaks_configured}}
+    {{#var current_price_break /}}
     {{#for price_break in current_variant.quantity_price_breaks}}
       {{#if current_variant.quantity_rule.min >= price_break.minimum_quantity}}
-        {{#var current_price_break = price_break.price /}}
+        {{#set current_price_break = price_break.price /}}
       {{/if}}
     {{/for}}
 

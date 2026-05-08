@@ -47,6 +47,7 @@
 
 .customer-company__billing {
   padding-block-start: 16px;
+  margin-block-start: 16px;
   border-block-start: 1px solid rgba(var(--color-entry-line));
 }
 

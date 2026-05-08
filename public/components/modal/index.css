@@ -43,6 +43,12 @@
       width: 100vw;
     }
   }
+
+  theme-modal > details:not([open]) > summary + :not(details, summary),
+  [data-mount-modal]:not([open]) > summary + :not(details, summary),
+  [data-theme-modal] > details:not([open]) > summary + :not(details, summary) {
+    display: none !important;
+  }
   [data-placement="left"] > summary + :not(details, summary),
   [data-placement="left"] > details > summary + :not(details, summary) {
     --modal-animation-name: animation-slide-in-left;

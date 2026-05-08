@@ -124,6 +124,7 @@
       },
       "none_existent": "Produkt neexistuje",
       "selling_plan": {
+        "discount": "Sleva na předplatné",
         "name": "Informace o odběru"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Načítání dalších položek",
       "no_product_data_found": "Nebyly nalezeny žádné údaje o produktu. Zkuste to prosím později",
       "sold_out": "Vyprodáno",
+      "suffix": {
+        "unavailable": "Nelze zakoupit"
+      },
       "unavailable": "Zboží neexistuje",
       "variant_property_color": "Barva"
     },

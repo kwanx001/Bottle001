@@ -31,6 +31,9 @@ class EmailAndPhoneModal extends BaseForm {
         this.#step2ActionsElement = this.#step2ContentElement?.querySelector('.modify-modal__actions');
         this.#defaultActionsElement = this.#defaultContentElement?.querySelector('.modify-modal__actions');
         this.#needCheckTag = this.formElement && this.formElement.getAttribute('data-check');
+        this.#editElements?.forEach((element) => {
+            element.addEventListener('click', this.#onModalOpenHandler.bind(this));
+        });
     }
     registerInstanceToParent(scene, instance) {
         if (this.#parentElement) {
@@ -41,9 +44,6 @@ class EmailAndPhoneModal extends BaseForm {
         if (!this.formElement) {
             throw new Error('EmailAndPhoneModal: form element not found');
         }
-        this.#editElements?.forEach((element) => {
-            element.addEventListener('click', this.#onModalOpenHandler.bind(this));
-        });
         this.addEventListener('modal:close', this.#onModalCloseHandler.bind(this));
         this.#nextButtonElement?.addEventListener('click', this.#onNextStepHandler.bind(this));
         this.formElement.addEventListener('submit', this.#onSubmitHandler.bind(this));

@@ -5,7 +5,7 @@
 
 {{#product_item product class="block-product-card" }}
   <a
-    href="{{ product.url | default(`javascript:void(0)`) }}"
+    href="{{ product.url | default(`javascript:;`) }}"
     class="
       product-card-style--{{ settings.product_card_style }}
       {{#if product_card_style == "card" }}product-card-border-shadow{{/if}}

@@ -74,7 +74,7 @@
       {{/if}}
 
       
-      {{#if !props.item.selling_plan_allocation.selling_plan.name }}
+      {{#if props.item.selling_plan_allocation }}
         <div class="cart-item__selling-plan">
           <div class="body6">
             <span class="font-bold">{{ "cart.item.selling_plan.name" | t() }}:</span>
@@ -84,8 +84,31 @@
       {{/if}}
 
       
-      {{#if final_widgets_list | contains("discount") && props.item.line_level_discount_allocations | size() }}
+      {{#if
+        final_widgets_list | contains("discount") &&
+        ((props.item.line_level_discount_allocations | size()) || props.item.selling_plan_allocation)
+      }}
         <ul class="cart-item__discount body6">
+          
+          {{#if props.item.selling_plan_allocation }}
+            <li>
+              {{#component "icons/bookmark" /}}
+              {{#var plan_value = props.item.selling_plan_allocation.selling_plan.price_adjustments[0].value /}}
+              {{#var
+                plan_value_type = props.item.selling_plan_allocation.selling_plan.price_adjustments[0].value_type
+              /}}
+              <span>
+                {{ "cart.item.selling_plan.discount" | t() }}
+                {{#if plan_value_type == "percentage" }}
+                  (-{{ plan_value | divided_by(100) }}%)
+                {{#else if plan_value_type == "fixed_amount" /}}
+                  (-{{{ plan_value | money_with_currency() }}})
+                {{/if}}
+              </span>
+            </li>
+          {{/if}}
+
+          
           {{#for discount in props.item.line_level_discount_allocations }}
             <li>
               {{#component "icons/bookmark" /}}

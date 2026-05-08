@@ -124,6 +124,7 @@
       },
       "none_existent": "A termék nem létezik",
       "selling_plan": {
+        "discount": "Előfizetési kedvezmény",
         "name": "Előfizetési információk"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "További elemek betöltése",
       "no_product_data_found": "Nem található termékadat. Kérjük, később próbálja újra",
       "sold_out": "Elfogyott",
+      "suffix": {
+        "unavailable": "Nem lehet megvásárolni"
+      },
       "unavailable": "A javak nem léteznek",
       "variant_property_color": "Szín"
     },

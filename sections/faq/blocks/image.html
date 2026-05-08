@@ -1,7 +1,11 @@
 {{#var image = block.settings.image /}}
 
-<div class="faq-image{{#if block.settings.image_height != "fit_to_image"}} {{block.settings.image_height}}{{/if}}" style="--aspect-ratio: {{block.settings.image_aspect_ratio}};" {{{block.shopline_attributes}}}>
-  {{#if image}}
+<div
+  class="faq-image{{#if block.settings.image_height != "fit_to_image" }}{{ block.settings.image_height }}{{/if}}"
+  style="--aspect-ratio: {{ block.settings.image_aspect_ratio }};"
+  {{{ block.shopline_attributes }}}
+>
+  {{#if image }}
     {{#component "image" sizes="100%" data=image /}}
   {{#else/}}
     {{#placeholder_svg "image" /}}
@@ -17,8 +21,7 @@
     {
       "type": "image",
       "id": "image",
-      "label": "t:sections.faq.blocks.image.settings.image.label",
-      "default": {}
+      "label": "t:sections.faq.blocks.image.settings.image.label"
     },
     {
       "type": "select",

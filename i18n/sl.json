@@ -124,6 +124,7 @@
       },
       "none_existent": "Blago ne obstaja",
       "selling_plan": {
+        "discount": "Popust na naročnino",
         "name": "Informacije o naročnini"
       }
     },
@@ -816,6 +817,9 @@
       "load_more_btn": "Nalaganje več predmetov",
       "no_product_data_found": "Ni najdenih podatkov o izdelku. Poskusite znova pozneje",
       "sold_out": "Razprodano",
+      "suffix": {
+        "unavailable": "Nakup ni mogoč"
+      },
       "unavailable": "Blago ne obstaja",
       "variant_property_color": "Barva"
     },
