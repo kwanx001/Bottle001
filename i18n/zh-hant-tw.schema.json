@@ -628,6 +628,9 @@
         "collection": {
           "label": "商品分類"
         },
+        "color_scheme": {
+          "label": "配色"
+        },
         "layout": {
           "label": "排版"
         },
@@ -2121,11 +2124,14 @@
     "recommended_product": {
       "name": "商品推薦",
       "settings": {
+        "color_scheme": {
+          "label": "配色"
+        },
         "layout": {
           "label": "排版"
         },
         "spacing": {
-          "label": "排版"
+          "label": "間距"
         }
       }
     },
@@ -3526,30 +3532,36 @@
             "label": "背景"
           },
           "definition_1": {
-            "label": "文字"
+            "label": "媒體背景"
           },
           "definition_2": {
-            "label": "淺色文字"
+            "label": "卡片背景"
           },
           "definition_3": {
-            "label": "線條與邊框"
+            "label": "文字"
           },
           "definition_4": {
-            "label": "按鈕背景"
+            "label": "淺色文字"
           },
           "definition_5": {
-            "label": "按鈕文字"
+            "label": "線條與邊框"
           },
           "definition_6": {
-            "label": "次級按鈕背景"
+            "label": "按鈕背景"
           },
           "definition_7": {
-            "label": "次級按鈕文字"
+            "label": "按鈕文字"
           },
           "definition_8": {
-            "label": "次級按鈕描邊"
+            "label": "次級按鈕背景"
           },
           "definition_9": {
+            "label": "次級按鈕文字"
+          },
+          "definition_10": {
+            "label": "次級按鈕描邊"
+          },
+          "definition_11": {
             "label": "文字鏈接"
           }
         },

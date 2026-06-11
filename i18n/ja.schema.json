@@ -628,6 +628,9 @@
         "collection": {
           "label": "商品カテゴリ"
         },
+        "color_scheme": {
+          "label": "配色"
+        },
         "layout": {
           "label": "レイアウト"
         },
@@ -2121,11 +2124,14 @@
     "recommended_product": {
       "name": "おすすめ商品",
       "settings": {
+        "color_scheme": {
+          "label": "配色"
+        },
         "layout": {
           "label": "レイアウト"
         },
         "spacing": {
-          "label": "レイアウト"
+          "label": "間隔"
         }
       }
     },
@@ -3526,30 +3532,36 @@
             "label": "背景"
           },
           "definition_1": {
-            "label": "テキスト"
+            "label": "メディア背景"
           },
           "definition_2": {
-            "label": "薄色文字"
+            "label": "カードの背景"
           },
           "definition_3": {
-            "label": "線と枠線"
+            "label": "テキスト"
           },
           "definition_4": {
-            "label": "ボタンの背景"
+            "label": "薄色文字"
           },
           "definition_5": {
-            "label": "ボタンの文字"
+            "label": "線と枠線"
           },
           "definition_6": {
-            "label": "サブボタンの背景"
+            "label": "ボタンの背景"
           },
           "definition_7": {
-            "label": "サブボタンの文字"
+            "label": "ボタンの文字"
           },
           "definition_8": {
-            "label": "サブボタンの枠線"
+            "label": "サブボタンの背景"
           },
           "definition_9": {
+            "label": "サブボタンの文字"
+          },
+          "definition_10": {
+            "label": "サブボタンの枠線"
+          },
+          "definition_11": {
             "label": "テキストリンク"
           }
         },

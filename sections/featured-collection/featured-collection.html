@@ -1,12 +1,16 @@
-<section class="page-width">
-  <div class="section-featured-collection {{ section.settings | class_list() }}">
-    {{#blocks }}
-      {{#if forblock.type == "heading-with-link/heading-with-link"}}
-        {{#block url=section.settings.collection.url /}}
-      {{#else if forblock.type == "product-list/list" /}}
-        {{#block collection=section.settings.collection product_placeholder=true /}}
-      {{/if}}
-    {{/blocks}}
+{{#component "stylesheet" src="./featured-collection.css" | asset_url() /}}
+
+<section class="section-featured-collection-wrapper color-{{section.settings.color_scheme.id}}">
+  <div class="page-width">
+    <div class="section-featured-collection {{ section.settings | class_list() }}">
+      {{#blocks }}
+        {{#if forblock.type == "heading-with-link/heading-with-link"}}
+          {{#block url=section.settings.collection.url /}}
+        {{#else if forblock.type == "product-list/list" /}}
+          {{#block collection=section.settings.collection product_placeholder=true /}}
+        {{/if}}
+      {{/blocks}}
+    </div>
   </div>
 </section>
 
@@ -18,6 +22,12 @@
       "type": "collection",
       "id": "collection",
       "label": "t:sections.featured_collection.settings.collection.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.featured_collection.settings.color_scheme.label",
+      "default": "scheme-1"
     },
     {
       "type": "style.layout",

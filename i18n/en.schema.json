@@ -628,6 +628,9 @@
         "collection": {
           "label": "Collection list"
         },
+        "color_scheme": {
+          "label": "Color"
+        },
         "layout": {
           "label": "Arrangement"
         },
@@ -2121,11 +2124,14 @@
     "recommended_product": {
       "name": "Recommended products",
       "settings": {
+        "color_scheme": {
+          "label": "Color"
+        },
         "layout": {
           "label": "Arrangement"
         },
         "spacing": {
-          "label": "Arrangement"
+          "label": "Spacing"
         }
       }
     },
@@ -3526,30 +3532,36 @@
             "label": "Background"
           },
           "definition_1": {
-            "label": "Text"
+            "label": "Media background"
           },
           "definition_2": {
-            "label": "Text in light colors"
+            "label": "Card background"
           },
           "definition_3": {
-            "label": "Lines and borders"
+            "label": "Text"
           },
           "definition_4": {
-            "label": "Button background"
+            "label": "Text in light colors"
           },
           "definition_5": {
-            "label": "Button text"
+            "label": "Lines and borders"
           },
           "definition_6": {
-            "label": "Secondary button background"
+            "label": "Button background"
           },
           "definition_7": {
-            "label": "Secondary button text"
+            "label": "Button text"
           },
           "definition_8": {
-            "label": "Secondary button border"
+            "label": "Secondary button background"
           },
           "definition_9": {
+            "label": "Secondary button text"
+          },
+          "definition_10": {
+            "label": "Secondary button border"
+          },
+          "definition_11": {
             "label": "Text link"
           }
         },

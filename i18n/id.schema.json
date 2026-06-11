@@ -628,6 +628,9 @@
         "collection": {
           "label": "Klasifikasi produk"
         },
+        "color_scheme": {
+          "label": "Pencocokan warna"
+        },
         "layout": {
           "label": "Tipografi"
         },
@@ -2121,11 +2124,14 @@
     "recommended_product": {
       "name": "Produk Unggulan",
       "settings": {
+        "color_scheme": {
+          "label": "Pencocokan warna"
+        },
         "layout": {
           "label": "Tipografi"
         },
         "spacing": {
-          "label": "Tipografi"
+          "label": "Spasi"
         }
       }
     },
@@ -3526,30 +3532,36 @@
             "label": "latar"
           },
           "definition_1": {
-            "label": "Kata-kata"
+            "label": "Latar belakang media"
           },
           "definition_2": {
-            "label": "Kata warna terang"
+            "label": "Latar belakang kartu"
           },
           "definition_3": {
-            "label": "Garis dan batas"
+            "label": "Kata-kata"
           },
           "definition_4": {
-            "label": "latar tombol"
+            "label": "Kata warna terang"
           },
           "definition_5": {
-            "label": "kata tombol"
+            "label": "Garis dan batas"
           },
           "definition_6": {
-            "label": "Latar belakang tombol sekunder"
+            "label": "latar tombol"
           },
           "definition_7": {
-            "label": "Teks tombol sekunder"
+            "label": "kata tombol"
           },
           "definition_8": {
-            "label": "Garis luar tombol sekunder"
+            "label": "Latar belakang tombol sekunder"
           },
           "definition_9": {
+            "label": "Teks tombol sekunder"
+          },
+          "definition_10": {
+            "label": "Garis luar tombol sekunder"
+          },
+          "definition_11": {
             "label": "Tautan teks"
           }
         },

@@ -628,6 +628,9 @@
         "collection": {
           "label": "Phân loại sản phẩm"
         },
+        "color_scheme": {
+          "label": "Phối màu"
+        },
         "layout": {
           "label": "Kiểu chữ"
         },
@@ -2121,11 +2124,14 @@
     "recommended_product": {
       "name": "Sản phẩm nổi bật",
       "settings": {
+        "color_scheme": {
+          "label": "Phối màu"
+        },
         "layout": {
           "label": "Kiểu chữ"
         },
         "spacing": {
-          "label": "Kiểu chữ"
+          "label": "Khoảng cách"
         }
       }
     },
@@ -3526,30 +3532,36 @@
             "label": "Nền"
           },
           "definition_1": {
-            "label": "Chữ viết"
+            "label": "Nền phương tiện"
           },
           "definition_2": {
-            "label": "Chữ màu nhạt"
-          },
-          "definition_3": {
-            "label": "Đường nét và đường viền"
-          },
-          "definition_4": {
-            "label": "Nền nút"
-          },
-          "definition_5": {
-            "label": "Nội dung nút"
-          },
-          "definition_6": {
-            "label": "Nền nút thứ cấp"
-          },
-          "definition_7": {
-            "label": "Chữ nút thứ cấp"
-          },
-          "definition_8": {
             "label": ""
           },
+          "definition_3": {
+            "label": "Chữ viết"
+          },
+          "definition_4": {
+            "label": "Chữ màu nhạt"
+          },
+          "definition_5": {
+            "label": "Đường nét và đường viền"
+          },
+          "definition_6": {
+            "label": "Nền nút"
+          },
+          "definition_7": {
+            "label": "Nội dung nút"
+          },
+          "definition_8": {
+            "label": "Nền nút thứ cấp"
+          },
           "definition_9": {
+            "label": "Chữ nút thứ cấp"
+          },
+          "definition_10": {
+            "label": ""
+          },
+          "definition_11": {
             "label": ""
           }
         },

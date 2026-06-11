@@ -628,6 +628,9 @@
         "collection": {
           "label": "หมวดหมู่"
         },
+        "color_scheme": {
+          "label": "จับคู่สี"
+        },
         "layout": {
           "label": "ตัวอักษร"
         },
@@ -2121,11 +2124,14 @@
     "recommended_product": {
       "name": "แนะนำผลิตภัณฑ์",
       "settings": {
+        "color_scheme": {
+          "label": "จับคู่สี"
+        },
         "layout": {
           "label": "ตัวอักษร"
         },
         "spacing": {
-          "label": "ตัวอักษร"
+          "label": "ระยะห่าง"
         }
       }
     },
@@ -3526,30 +3532,36 @@
             "label": "พื้นหลัง"
           },
           "definition_1": {
-            "label": "ข้อความ"
+            "label": "พื้นหลังสื่อ"
           },
           "definition_2": {
-            "label": "ข้อความสีอ่อน"
+            "label": "พื้นหลังการ์ด"
           },
           "definition_3": {
-            "label": "เส้นและเส้นขอบ"
+            "label": "ข้อความ"
           },
           "definition_4": {
-            "label": "พื้นหลังปุ่ม"
+            "label": "ข้อความสีอ่อน"
           },
           "definition_5": {
-            "label": "ข้อความปุ่ม"
+            "label": "เส้นและเส้นขอบ"
           },
           "definition_6": {
-            "label": "พื้นหลังปุ่มรอง"
+            "label": "พื้นหลังปุ่ม"
           },
           "definition_7": {
-            "label": "ข้อความปุ่มรอง"
+            "label": "ข้อความปุ่ม"
           },
           "definition_8": {
-            "label": "ขอบปุ่มรอง"
+            "label": "พื้นหลังปุ่มรอง"
           },
           "definition_9": {
+            "label": "ข้อความปุ่มรอง"
+          },
+          "definition_10": {
+            "label": "ขอบปุ่มรอง"
+          },
+          "definition_11": {
             "label": "ลิงก์ข้อความ"
           }
         },

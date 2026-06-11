@@ -10,7 +10,7 @@
   aspect-ratio: var(--aspect-ratio);
   padding: var(--padding);
   overflow: hidden;
-  background-color: rgb(243 243 243 / 100%);
+  background-color: rgb(var(--color-media-background));
 }
 
 .block-collection-card__image-wrapper img {

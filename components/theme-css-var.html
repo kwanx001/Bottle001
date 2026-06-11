@@ -144,6 +144,8 @@
 {{#for scheme in settings.color_schemes}}
 .color-{{scheme.id}} {
   --color-background: {{scheme.settings.color_background.red}},{{scheme.settings.color_background.green}},{{scheme.settings.color_background.blue}};
+  --color-media-background: {{scheme.settings.color_media_background.red}},{{scheme.settings.color_media_background.green}},{{scheme.settings.color_media_background.blue}};
+  --color-card-background: {{scheme.settings.color_card_background.red}},{{scheme.settings.color_card_background.green}},{{scheme.settings.color_card_background.blue}};
   --color-text: {{scheme.settings.color_text.red}},{{scheme.settings.color_text.green}},{{scheme.settings.color_text.blue}};
   --color-light-text: {{scheme.settings.color_light_text.red}},{{scheme.settings.color_light_text.green}},{{scheme.settings.color_light_text.blue}};
   --color-entry-line: {{scheme.settings.color_entry_line.red}},{{scheme.settings.color_entry_line.green}},{{scheme.settings.color_entry_line.blue}};

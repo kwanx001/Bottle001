@@ -628,6 +628,9 @@
         "collection": {
           "label": "Produk kategori"
         },
+        "color_scheme": {
+          "label": "Warna"
+        },
         "layout": {
           "label": "Tipografi"
         },
@@ -2121,11 +2124,14 @@
     "recommended_product": {
       "name": "Produk yang Ditampilkan",
       "settings": {
+        "color_scheme": {
+          "label": "Warna"
+        },
         "layout": {
           "label": "Tipografi"
         },
         "spacing": {
-          "label": "Tipografi"
+          "label": "Jarak perkataan"
         }
       }
     },
@@ -3526,30 +3532,36 @@
             "label": "latar belakang"
           },
           "definition_1": {
-            "label": "teks"
+            "label": "Latar belakang media"
           },
           "definition_2": {
-            "label": "Teks warna ringan"
+            "label": "Latar belakang kad"
           },
           "definition_3": {
-            "label": "Garisan dan tepi bingkai"
+            "label": "teks"
           },
           "definition_4": {
-            "label": "Latar belakang butang"
+            "label": "Teks warna ringan"
           },
           "definition_5": {
-            "label": "Teks butang"
+            "label": "Garisan dan tepi bingkai"
           },
           "definition_6": {
-            "label": "Latar belakang butang sekunder"
+            "label": "Latar belakang butang"
           },
           "definition_7": {
-            "label": "Teks butang sekunder"
+            "label": "Teks butang"
           },
           "definition_8": {
-            "label": "Pukulan butang sekunder"
+            "label": "Latar belakang butang sekunder"
           },
           "definition_9": {
+            "label": "Teks butang sekunder"
+          },
+          "definition_10": {
+            "label": "Pukulan butang sekunder"
+          },
+          "definition_11": {
             "label": "Pautan teks"
           }
         },

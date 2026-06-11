@@ -35,7 +35,12 @@
             {{#for product in products }}
               {{#var lazy = forloop.index > 2 /}}
               <li>
-                {{#block product=product lazy=lazy /}}
+                {{#block
+                  product=product
+                  lazy=lazy
+                  mobile_columns=section.settings.mobile_columns
+                  desktop_columns=section.settings.desktop_columns
+                /}}
               </li>
             {{/for}}
           {{/blocks}}

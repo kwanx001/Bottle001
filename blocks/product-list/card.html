@@ -7,6 +7,7 @@
   <a
     href="{{ product.url | default(`javascript:;`) }}"
     class="
+      block-product-card__content
       product-card-style--{{ settings.product_card_style }}
       {{#if product_card_style == "card" }}product-card-border-shadow{{/if}}
       {{ block.settings | class_list() }}

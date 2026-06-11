@@ -1,5 +1,5 @@
-.block-product-card .product-card-style--card {
-  background-color: rgb(var(--color-background));
+.block-product-card__content.product-card-style--card {
+  background-color: rgb(var(--color-card-background));
 }
 .block-product-card__layer-image-wrapper {
   position: relative;
@@ -28,7 +28,7 @@
   height: 100%;
   aspect-ratio: var(--aspect-ratio);
   overflow: hidden;
-  background-color: rgb(243 243 243 / 100%);
+  background-color: rgb(var(--color-media-background));
   border-radius: var(--border-radius);
 }
 .block-product-card__image-wrapper > svg {

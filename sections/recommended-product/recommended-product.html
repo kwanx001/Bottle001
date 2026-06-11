@@ -1,25 +1,34 @@
 {{#component "script" src="./recommended-product.js" | asset_url() /}}
+{{#component "stylesheet" src="./recommended-product.css" | asset_url() /}}
 
-<div class="page-width">
-  <div class="section-recommended-product {{section.settings | class_list()}}">
-    {{#blocks}}
-      {{#switch forblock.type}}
-        {{#case "product-list/list" /}}
-          <theme-recommended-product class="block-full-width" data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit={{forblock.settings.page_size}}">
-            {{#block products=recommendations.products product_placeholder=false /}}
-          </theme-recommended-product>
-        {{#else/}}
-          {{#block /}}
-      {{/switch}}
-    {{/blocks}}
+<section class="section-recommended-product-wrapper color-{{section.settings.color_scheme.id}}">
+  <div class="page-width">
+    <div class="section-recommended-product {{section.settings | class_list()}}">
+      {{#blocks}}
+        {{#switch forblock.type}}
+          {{#case "product-list/list" /}}
+            <theme-recommended-product class="block-full-width" data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit={{forblock.settings.page_size}}">
+              {{#block products=recommendations.products product_placeholder=false /}}
+            </theme-recommended-product>
+          {{#else/}}
+            {{#block /}}
+        {{/switch}}
+      {{/blocks}}
+    </div>
   </div>
-</div>
+</section>
 
 {{#schema}}
 {
   "name": "t:sections.recommended_product.name",
   "icon": "featuredProduct",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.recommended_product.settings.color_scheme.label",
+      "default": "scheme-1"
+    },
     {
       "type": "style.layout",
       "id": "layout",

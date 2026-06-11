@@ -34,7 +34,13 @@
           {{~#switch item.object_type}}
             {{#case "product" /}}
               {{#if forblock.type == "product-list/card"}}
-                <li>{{#block product=item /}}</li>
+                <li>
+                  {{#block
+                    product=item
+                    mobile_columns=block.settings.mobile_columns
+                    desktop_columns=block.settings.desktop_columns
+                  /}}
+                </li>
               {{/if}}
 
             {{#case "article" /}}
@@ -44,7 +50,13 @@
 
             {{#case "collection" /}}
               {{#if forblock.type == "collection/card"}}
-                <li>{{#block collection=item /}}</li>
+                <li>
+                  {{#block
+                    collection=item
+                    mobile_columns=block.settings.mobile_columns
+                    desktop_columns=block.settings.desktop_columns
+                  /}}
+                </li>
               {{/if}}
 
             {{#case "page" /}}

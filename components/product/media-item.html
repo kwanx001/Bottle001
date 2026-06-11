@@ -4,14 +4,16 @@
 {{#var video_loop = props.video_loop /}}
 {{#var image_quality = props.image_quality /}}
 {{#var tag = props.tag | default("div") /}}
+{{#var image_lazy = props.image_lazy | default(false, allow_false = true) /}}
 
-<{{tag}}
-  class="media-gallery__item {{props.class}}"
-  data-media-id="{{media.id}}"
-  data-media-type="{{media.media_type}}"
-  data-aspect-ratio="{{media.preview_image.aspect_ratio}}">
+<{{ tag }}
+  class="media-gallery__item {{ props.class }}"
+  data-media-id="{{ media.id }}"
+  data-media-type="{{ media.media_type }}"
+  data-aspect-ratio="{{ media.preview_image.aspect_ratio }}"
+>
   <div class="media-gallery__media">
-    {{#switch media.media_type}}
+    {{#switch media.media_type }}
       {{#case "video" /}}
         {{#component
           "media/video-media"
@@ -23,7 +25,8 @@
           poster_image_lazy=image_lazy
           poster_image_desktop_size="50vw"
           poster_image_mobile_size="100vw"
-          poster_image_quality=image_quality /}}
+          poster_image_quality=image_quality
+        /}}
       {{#case "external_video" /}}
         {{#component
           "media/video-media"
@@ -53,4 +56,4 @@
       {{#component "icons/magnifiers" /}}
     </span>
   </div>
-</{{tag}}>
+</{{ tag }}>
