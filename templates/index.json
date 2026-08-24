@@ -7,6 +7,7 @@
         "autoplay": true,
         "border_radius": 44,
         "contact_label": "CONTACT US",
+        "contact_link": "",
         "content_width": 760,
         "cta_label": "START A PROJECT",
         "cta_text_color": "#33586F",
@@ -34,7 +35,7 @@
       },
       "disabled": false,
       "blocks": {},
-      "block_order": [],
+      "custom_css": [],
       "name": "沉浸式视频横幅"
     },
     "blog": {
