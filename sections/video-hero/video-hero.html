@@ -1,0 +1,441 @@
+{{#component "stylesheet" src="./video-hero.css" | asset_url() /}}
+
+<div
+  class="video-hero"
+  data-section-id="{{ section.id }}"
+  style="
+    --video-hero-max-width: {{ section.settings.max_width }}px;
+    --video-hero-desktop-height: {{ section.settings.desktop_height }}px;
+    --video-hero-mobile-height: {{ section.settings.mobile_height }}px;
+    --video-hero-radius: {{ section.settings.border_radius }}px;
+    --video-hero-heading-size: {{ section.settings.heading_size }}px;
+    --video-hero-mobile-heading-size: {{ section.settings.mobile_heading_size }}px;
+    --video-hero-content-width: {{ section.settings.content_width }}px;
+    --video-hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by(100, integer=false) }};
+    --video-hero-background: {{ section.settings.section_background.red }}, {{ section.settings.section_background.green }}, {{ section.settings.section_background.blue }};
+    --video-hero-text: {{ section.settings.text_color.red }}, {{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
+    --video-hero-accent: {{ section.settings.accent_color.red }}, {{ section.settings.accent_color.green }}, {{ section.settings.accent_color.blue }};
+    --video-hero-overlay: {{ section.settings.overlay_color.red }}, {{ section.settings.overlay_color.green }}, {{ section.settings.overlay_color.blue }};
+    --video-hero-cta-text: {{ section.settings.cta_text_color.red }}, {{ section.settings.cta_text_color.green }}, {{ section.settings.cta_text_color.blue }};
+    --video-hero-object-position: {{ section.settings.media_position }};
+  "
+>
+  <div class="video-hero__frame">
+    <div class="video-hero__media">
+      {{#if section.settings.poster_image }}
+        <div class="video-hero__poster">
+          {{#component
+            "image"
+            class="video-hero__poster-image"
+            data=section.settings.poster_image
+            lazy=false
+            sizes="100vw"
+          /}}
+        </div>
+      {{#else if section.settings.poster_url /}}
+        <div class="video-hero__poster">
+          <img
+            class="video-hero__poster-image"
+            src="{{ section.settings.poster_url }}"
+            alt=""
+            loading="eager"
+          />
+        </div>
+      {{/if}}
+
+      {{#if section.settings.video_local_media }}
+        {{#video_tag
+          section.settings.video_local_media
+          class="video-hero__video"
+          autoplay=section.settings.autoplay
+          loop=section.settings.loop
+          muted=section.settings.autoplay
+          controls=section.settings.show_controls
+          playsinline=true
+          preload="metadata"
+        /}}
+      {{#else if section.settings.video_url /}}
+        <video
+          class="video-hero__video"
+          src="{{ section.settings.video_url }}"
+          {{#if section.settings.poster_image }}poster="{{ section.settings.poster_image | image_url() }}"{{#else if section.settings.poster_url /}}poster="{{ section.settings.poster_url }}"{{/if}}
+          {{#if section.settings.autoplay }}autoplay muted{{/if}}
+          {{#if section.settings.loop }}loop{{/if}}
+          {{#if section.settings.show_controls }}controls{{/if}}
+          playsinline
+          preload="metadata"
+        ></video>
+      {{/if}}
+    </div>
+
+    <div class="video-hero__overlay"></div>
+
+    {{#if section.settings.show_topbar }}
+      <div class="video-hero__topbar">
+        <a
+          class="video-hero__brand"
+          href="{{ section.settings.logo_link | default(`/`) }}"
+          aria-label="{{ section.settings.logo_text | default(shop.name, allow_empty_str=false) }}"
+        >
+          {{#if section.settings.logo_image }}
+            {{#component
+              "image"
+              class="video-hero__logo"
+              data=section.settings.logo_image
+              lazy=false
+              sizes="240px"
+            /}}
+          {{#else/}}
+            <span class="video-hero__brand-text">
+              {{ section.settings.logo_text | default(shop.name, allow_empty_str=false) }}
+            </span>
+          {{/if}}
+        </a>
+
+        {{#if section.settings.nav_one_label || section.settings.nav_two_label }}
+          <nav class="video-hero__nav" aria-label="Hero navigation">
+            {{#if section.settings.nav_one_label }}
+              <a href="{{ section.settings.nav_one_link | default(`javascript:;`) }}">
+                {{ section.settings.nav_one_label }}
+              </a>
+            {{/if}}
+            {{#if section.settings.nav_two_label }}
+              <a href="{{ section.settings.nav_two_link | default(`javascript:;`) }}">
+                {{ section.settings.nav_two_label }}
+              </a>
+            {{/if}}
+          </nav>
+        {{/if}}
+
+        {{#if section.settings.contact_label }}
+          <a
+            class="video-hero__contact"
+            href="{{ section.settings.contact_link | default(`javascript:;`) }}"
+          >
+            {{ section.settings.contact_label }}
+          </a>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    <div class="video-hero__content">
+      {{#if section.settings.eyebrow }}
+        <div class="video-hero__eyebrow">
+          <span class="video-hero__eyebrow-icon" aria-hidden="true">
+            {{#component "icons/plus" /}}
+          </span>
+          <span>{{ section.settings.eyebrow }}</span>
+        </div>
+      {{/if}}
+
+      {{#if section.settings.heading }}
+        <h2 class="video-hero__heading">{{ section.settings.heading }}</h2>
+      {{/if}}
+
+      {{#if section.settings.description }}
+        <div class="video-hero__description">{{ section.settings.description }}</div>
+      {{/if}}
+    </div>
+
+    {{#if section.settings.cta_label }}
+      <div class="video-hero__cta-tray">
+        <a
+          class="video-hero__cta"
+          href="{{ section.settings.cta_link | default(`javascript:;`) }}"
+        >
+          {{ section.settings.cta_label }}
+        </a>
+      </div>
+    {{/if}}
+  </div>
+</div>
+
+{{#schema}}
+{
+  "name": "沉浸式视频横幅",
+  "icon": "video",
+  "class": "section-video-hero",
+  "settings": [
+    {
+      "type": "group_header",
+      "label": "视频与封面"
+    },
+    {
+      "type": "video",
+      "id": "video_local_media",
+      "label": "上传视频",
+      "info": "上传的视频优先于下方 MP4 链接"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "MP4 视频链接",
+      "default": "https://cms.cordicamedical.com/wp-content/uploads/2026/06/Homepage-header-video-V2.mp4",
+      "placeholder": "https://example.com/video.mp4"
+    },
+    {
+      "type": "image",
+      "id": "poster_image",
+      "label": "上传封面图",
+      "info": "上传的封面图优先于下方封面图链接"
+    },
+    {
+      "type": "text",
+      "id": "poster_url",
+      "label": "封面图链接",
+      "default": "https://cms.cordicamedical.com/wp-content/uploads/2026/05/hero3-scaled.png",
+      "placeholder": "https://example.com/poster.jpg"
+    },
+    {
+      "type": "switch",
+      "id": "autoplay",
+      "label": "自动播放",
+      "default": true
+    },
+    {
+      "type": "switch",
+      "id": "loop",
+      "label": "循环播放",
+      "default": true
+    },
+    {
+      "type": "switch",
+      "id": "show_controls",
+      "label": "显示播放控件",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "视频焦点位置",
+      "default": "center center",
+      "options": [
+        {
+          "value": "left center",
+          "label": "靠左"
+        },
+        {
+          "value": "center center",
+          "label": "居中"
+        },
+        {
+          "value": "right center",
+          "label": "靠右"
+        }
+      ]
+    },
+    {
+      "type": "group_header",
+      "label": "顶部内容"
+    },
+    {
+      "type": "switch",
+      "id": "show_topbar",
+      "label": "显示顶部品牌与导航",
+      "default": true
+    },
+    {
+      "type": "image",
+      "id": "logo_image",
+      "label": "品牌 Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "品牌文字",
+      "default": "Cordica Medical"
+    },
+    {
+      "type": "url",
+      "id": "logo_link",
+      "label": "品牌链接"
+    },
+    {
+      "type": "text",
+      "id": "nav_one_label",
+      "label": "导航一文字",
+      "default": "Design & Development"
+    },
+    {
+      "type": "url",
+      "id": "nav_one_link",
+      "label": "导航一链接"
+    },
+    {
+      "type": "text",
+      "id": "nav_two_label",
+      "label": "导航二文字",
+      "default": "Manufacturing"
+    },
+    {
+      "type": "url",
+      "id": "nav_two_link",
+      "label": "导航二链接"
+    },
+    {
+      "type": "text",
+      "id": "contact_label",
+      "label": "右上按钮文字",
+      "default": "CONTACT US"
+    },
+    {
+      "type": "url",
+      "id": "contact_link",
+      "label": "右上按钮链接"
+    },
+    {
+      "type": "group_header",
+      "label": "主文案"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "小标题",
+      "default": "FROM CONCEPT TO CARE"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "主标题",
+      "default": "Medical devices built for the moment that matters."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "说明文字",
+      "default": "From first concept through commercial scale, we partner with medical device companies to bring their most important innovations to life."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "左下按钮文字",
+      "default": "START A PROJECT"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "左下按钮链接"
+    },
+    {
+      "type": "group_header",
+      "label": "尺寸与样式"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "最大宽度",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1600
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "桌面高度",
+      "min": 520,
+      "max": 920,
+      "step": 20,
+      "unit": "px",
+      "default": 820
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "手机高度",
+      "min": 520,
+      "max": 820,
+      "step": 20,
+      "unit": "px",
+      "default": 680
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "容器圆角",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "文案最大宽度",
+      "min": 400,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 760
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "桌面标题字号",
+      "min": 40,
+      "max": 88,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "手机标题字号",
+      "min": 30,
+      "max": 54,
+      "step": 2,
+      "unit": "px",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "遮罩透明度",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "模块背景色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "文字颜色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "强调色",
+      "default": "#FF4402"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "遮罩颜色",
+      "default": "#071D22"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "左下按钮文字与边框颜色",
+      "default": "#33586F"
+    }
+  ],
+  "presets": [
+    {
+      "name": "沉浸式视频横幅",
+      "category": "图片与视频"
+    }
+  ]
+}
+{{/schema}}
